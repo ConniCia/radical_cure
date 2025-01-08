@@ -1,6 +1,8 @@
 create_input_files_B <- function (step, CYP2D6_prev, proph_CQ, d_gamma) {
   
-  # Data from meta-analysis (Commons2023) --------------------------------------
+  # Input data -----------------------------------------------------------------
+  # Data from a meta-analysis of clinical trials by 
+  # [Commons et al.](https://doi.org/10.1016/S1473-3099(23)00430-9)
   
   dt_trial <- 
     tribble(

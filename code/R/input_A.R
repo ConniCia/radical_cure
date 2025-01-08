@@ -1,6 +1,8 @@
 create_input_files_A <- function (step, CYP2D6_prev, proph_CQ, proph_DP, d_gamma) {
   
-  # Read input data from IMPROV trial (Taylor2019a) ----------------------------
+  # Input data -----------------------------------------------------------------
+  # De-identified data on the time to first P vivax recurrence from the 
+  # [IMPROV clinical trial](http://dx.doi.org/10.1016/S0140-6736(19)31285-1)
   
   # character columns: Location, Partner_drug, Drug_regimen
   # integer columns: fail, Day

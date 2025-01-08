@@ -145,7 +145,8 @@ get_median_efficacy_estimates <- function (taskname) {
 }
 
 
-# get sample from IBM posterior
+# get sample of the posterior parameter draws obtained from the calibration of 
+# the PvIBM by [White et al](http://dx.doi.org/10.1038/s41467-018-05860-8)
 get_sample_from_IBM_posterior <- function () {
   
   set.seed(1)

@@ -12,7 +12,7 @@ The R code for the PvRM has been developed by Constanze CIAVARELLA (constanze DO
 
 ### _P. vivax_ individual-based model (PvIBM) written in C++
 
-The C++ code for the PvIBM has been developed by Michael WHITE (michael DOT white AT pasteur DOT fr) and is available as stand-alone code at https://gitlab.pasteur.fr/mwhite/pv_mod.
+The C++ code for the PvIBM has been developed by Michael WHITE (michael DOT white AT pasteur DOT fr) anc collaborators, and is available as stand-alone code at https://gitlab.pasteur.fr/mwhite/pv_mod.
 
 A copy of the C++ code (with some very minor edits that do NOT have an impact on mnodel dynamics) is included in this repository under [code/Pv_mod](code/Pv_mod).
 
@@ -20,6 +20,16 @@ A copy of the C++ code (with some very minor edits that do NOT have an impact on
 ### All other code
 
 All other code has been developed by Constanze CIAVARELLA (constanze DOT ciavarella AT umontpellier DOT fr).
+
+
+## Input data
+
+This code uses input data from four sources:
+
+- De-identified data on the time to first P vivax recurrence from the [IMPROV clinical trial](http://dx.doi.org/10.1016/S0140-6736(19)31285-1) is not publicly available and hence not included in this repository. Access to this data can be requested from the IMPROV study team. An empty placeholder file is included under [data/raw/placeholder_IMPROV_data.csv](data/raw/placeholder_IMPROV_data.csv) and read into the code in the script [code/R/input_A.R](code/R/input_A.R).
+- Data from a meta-analysis of clinical trials by [Commons et al.](https://doi.org/10.1016/S1473-3099(23)00430-9) is included directly in the code in the script [code/R/input_B.R](code/R/input_B.R).
+- Data from a meta-analysis of clinical trials by [Watson et al.](https://doi.org/10.7554/eLife.83433) is included directly in the code in the script [code/R/input_C.R](code/R/input_C.R).
+- Posterior parameter draws obtained from the calibration of the PvIBM by [White et al](http://dx.doi.org/10.1038/s41467-018-05860-8) are included in input file [data/raw/PvMod_posterior_draws.csv](data/raw/PvMod_posterior_draws.csv).
 
 
 ## Getting started
@@ -30,7 +40,7 @@ We use a cluster to run computationally heavy parts of the code. All cluster ope
 
 R packages to install are 'ssh' and those listed in [code/R/_header.R](code/R/_header.R).
 
-C++ code is compiled useing gcc version 9.2.0.
+C++ code is compiled using gcc version 9.2.0.
 
 
 ## Repository structure
@@ -46,7 +56,7 @@ Additional directories and files will be created within the [data/](data/) direc
 
 ## Code structure
 
-The code is comprised of four **analysis** steps (A, B, C, D) and a section to create visualisations of analysis results (diagnostic MCMC plots, figures and tables).
+The code is comprised of four **analysis** steps (**A**, **B**, **C**, **D**) and a section to create visualisations of analysis results (diagnostic MCMC plots, figures and tables).
 
 The code should be run **in sequence** since later parts of the analysis use output from earlier parts.
 
@@ -55,7 +65,7 @@ The code should be run **in sequence** since later parts of the analysis use out
 
 The PvRM simulates recurrent _P. vivax_ blood-stage infections in trial participants treated with primaquine or tafenoquine for a symptomatic _P. vivax_ infection. To estimate the efficacy of a primaquine or tafenoquine regimen, we calibrate the PvRM to clinical trial data via Markov Chain Monte Carlo (MCMC).
 
-In code **step A**, we fit the PvRM to data from the [IMPROV trial](http://dx.doi.org/10.1016/S0140-6736(19)31285-1) to estimate the hypnozoiticidal efficacy of 7 mg/kg of primaquine over 7 days and of 7 mg/kg of primaquine over 14 days.
+In code **step A**, we fit the PvRM to data from the [IMPROV clinical trial](http://dx.doi.org/10.1016/S0140-6736(19)31285-1) to estimate the hypnozoiticidal efficacy of 7 mg/kg of primaquine over 7 days and of 7 mg/kg of primaquine over 14 days.
 
 In code **step B**, we fit the PvRM to data from a meta-analysis of clinical trials by [Commons et al.](https://doi.org/10.1016/S1473-3099(23)00430-9) to estimate the hypnozoiticidal efficacy of 3.5 mg/kg of primaquine over 7 or 14 days.
 
@@ -80,7 +90,7 @@ General abbreviations
 -   MCMC = Markov Chain Monte Carlo
 -   LS = liver stage
 -   PQ = primaquine (LS drug)
--   Pv = Plasmodium vivax (parasite causing recurring malaria)
+-   Pv = _Plasmodium vivax_ (parasite causing recurring malaria)
 -   TQ = tafenoquine (LS drug)
 
 

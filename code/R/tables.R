@@ -637,6 +637,8 @@ tab_posterior_draws_IBM <- function () {
     select(Parameter, Description)
   
   posterior <-
+    # read in the posterior parameter draws obtained from the calibration of the 
+    # PvIBM by [White et al](http://dx.doi.org/10.1038/s41467-018-05860-8)
     read_csv(file.path(dir_raw, "PvMod_posterior_draws.csv")) %>%
     # rename
     rename(
